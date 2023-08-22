@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.3.3'
+    }
+    stages {
+        stage('Compile') {
+            steps {
+                dir('api-catalog') {
+                    sh 'mvn clean compile'
+                }
+            }
+
+        }
+        stage('Unit Test') {
+            steps {
+                dir('api-catalog') {
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage('Package') {
+            steps {
+                dir('api-catalog') {
+                    sh 'mvn package'
+                }
+            }
+        }
+    }
+}

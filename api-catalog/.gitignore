@@ -23,13 +23,7 @@
 hs_err_pid*
 
 .mvn/
-
-# Eclipse Files
 target/
 .settings/
 .project
 .classpath
-
-# IntelliJ Idea Files
-.idea
-*.iml
