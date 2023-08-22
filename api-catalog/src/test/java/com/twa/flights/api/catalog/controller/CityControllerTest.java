@@ -34,7 +34,7 @@ public class CityControllerTest {
         when(cityService.getCityByCode(DEFAULT_CITY_CODE)).thenReturn(city);
         ResponseEntity<CityDTO> response = controller.getCityByCode(DEFAULT_CITY_CODE);
 
-        assertAll(() -> assertNotNull(response), () -> assertEquals(201, response.getStatusCodeValue()),
+        assertAll(() -> assertNotNull(response), () -> assertEquals(200, response.getStatusCodeValue()),
                 () -> assertEquals(DEFAULT_CITY_CODE, response.getBody().getCode()));
     }
 }
