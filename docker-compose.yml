@@ -18,32 +18,7 @@ services:
       MYSQL_DATABASE: 'flights_catalog'
       MYSQL_ROOT_PASSWORD: 'muppet'
     ports:
-     - 3310:3306    
-  dtrack-apiserver:
-    image: dependencytrack/apiserver
-    deploy:
-      resources:
-        limits:
-          memory: 12288m
-        reservations:
-          memory: 8192m
-      restart_policy:
-        condition: on-failure
-    ports:
-      - '8081:8080'
-    volumes:
-      - 'dependency-track:/data'
-    restart: unless-stopped
+     - 3310:3306
 
-  dtrack-frontend:
-      image: dependencytrack/frontend
-      depends_on:
-        - dtrack-apiserver
-      environment:
-        - API_BASE_URL=http://localhost:8081
-      ports:
-        - "8080:8080"
-      restart: unless-stopped
 volumes:
   jenkins-data:
-  dependency-track:
