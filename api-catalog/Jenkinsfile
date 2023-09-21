@@ -26,5 +26,13 @@ pipeline {
                 }
             }
         }
+        stage('OWASP Dependency-Track Vulnerabilities') {
+            steps {
+                dir('api-catalog') {
+                    sh 'mvn -B -DskipTests package'
+                    dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'ad14ba42-c4c1-4184-9d58-ccc0005ffa3f', synchronous: true, dependencyTrackApiKey: 'sAHfRePHbRPQ4kZiI1iyjNTMfyXEWgCo'
+                }
+            }
+        }
     }
 }
