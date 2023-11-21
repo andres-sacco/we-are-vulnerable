@@ -30,7 +30,7 @@ pipeline {
             steps {
                 dir('api-catalog') {
                     sh 'mvn -B -DskipTests package'
-                    dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'bdec1b19-3eff-4bed-942d-783da672de58', synchronous: true, dependencyTrackApiKey: 'yDa8TWCJR50r3gDV5gBFMFV6aQ4J2y9Z'
+                    dependencyTrackPublisher artifact: 'target/bom.xml', projectId: '74e9b037-a045-4897-b37f-399d22c1981b', synchronous: true, dependencyTrackApiKey: 'yDa8TWCJR50r3gDV5gBFMFV6aQ4J2y9Z'
                 }
             }
         }
